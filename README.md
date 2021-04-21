@@ -32,16 +32,18 @@ Note that if you are using in a managed expo app the install instructions may be
 
 #### Install and configure react-native-unimodules (can be skipped if in an expo app)
 It requires installing `react-native-unimodules` and modifying four files:
-    1. android/app/build.gradle
-    2. android/app/src/main/java/com/myapp/MainApplication.java
-    3. android/build.gradle
-    4. android/settings.gradle
-### Install and configure expo-gl-cpp and expo-gl
+
+        1. android/app/build.gradle
+        2. android/app/src/main/java/com/myapp/MainApplication.java
+        3. android/build.gradle
+        4. android/settings.gradle
+#### Install and configure expo-gl-cpp and expo-gl
 #### Install and configure expo-camera
 #### Install and configure async-storage
 It creates an issue: Doc says to install `@react-native-async-storage/async-storage`, but the project requires `@react-native-community/async-storage`. May be caused by backdated expo libraries.
 #### Install and configure react-native-fs
 It requires modifying three files:
+
     1. android/settings.gradle
     2. android/app/build.gradle
     3. MainApplication.java          
@@ -70,21 +72,21 @@ Before using tfjs in a react native app, you need to call tf.ready() and wait fo
 
 ## Important issues:
 ### 1. tfjs/tfjs-react-native project requires Android NDK. It must be installed and included on the path.
-    Link: https://github.com/expo/expo/issues/4483
+Link: https://github.com/expo/expo/issues/4483
 
 ### 2. WARN     Constants.manifest is null because the embedded app.config could not be read. Ensure that you have installed the expo-constants build scripts if you need to read from Constants.manifest.
-    Tried to fix it by installing `expo-constants` package. But it hasn't fixed.
+Tried to fix it by installing `expo-constants` package. But it hasn't fixed.
 ### 3. TypeError: undefined is not an object (evaluating 'a.substr')
-    Solution: Downgrading @tensorflow/tfjs@3.3.0 to @tensorflow/tfjs@3.0.0
+Solution: Downgrading @tensorflow/tfjs@3.3.0 to @tensorflow/tfjs@3.0.0
 ### 4. [Error: The highest priority backend 'rn-webgl' has not yet been initialized. Make sure to await tf.ready() or await tf.setBackend() before calling other methods]
-    Solution: Makeing sure to await tf.ready() or await tf.setBackend() before calling other methods]
+Solution: Makeing sure to await tf.ready() or await tf.setBackend() before calling other methods]
     
 ### 5. App/ Emulator crashes after picking the image.
-    Reason: Hadn't given the permission to write in external storage. And expo-image-picker requires editing AndroidManifest.xml file.
-    Link: https://github.com/expo/expo/tree/master/packages/expo-image-picker
+Reason: Hadn't given the permission to write in external storage. And expo-image-picker requires editing AndroidManifest.xml file.
+Link: https://github.com/expo/expo/tree/master/packages/expo-image-picker
+Solution:
+Add permissions on AndroidManifest.xml file:
 
-    Solution:
-    Add permissions on AndroidManifest.xml file:
      <!-- Added permissions -->
      <uses-permission android:name="android.permission.CAMERA" />
      <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
@@ -96,12 +98,13 @@ Before using tfjs in a react native app, you need to call tf.ready() and wait fo
     </activity>
 
 ### 6. undefined (if ImagePicker.getPendingResultAsync() is used instead of ImagePicker.launchImageLibraryAsync())
-     Solution: Must be used ImagePicker.launchImageLibraryAsync()
+Solution: Must be used ImagePicker.launchImageLibraryAsync()
      
 ### 7. TypeError: Network request failed when using `const response = await fetch(imageAssetPath.uri, {}, { isBinary: true })`
-       Solution: Not using tfjs-react-native/fetch, instead use `expo-file-system`.
-       Link: https://github.com/tensorflow/tfjs/issues/3186
-       Detailed solution:
+Solution: Not using tfjs-react-native/fetch, instead use `expo-file-system`.
+Link: https://github.com/tensorflow/tfjs/issues/3186
+Detailed solution:
+
         Change:
         const response = await fetch(imageAssetPath.uri, {}, { isBinary: true })
         const rawImageData = await response.arrayBuffer()
