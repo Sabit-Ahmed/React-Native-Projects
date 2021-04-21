@@ -71,17 +71,17 @@ Before using tfjs in a react native app, you need to call tf.ready() and wait fo
 
 
 ## Important issues:
-### 1. tfjs/tfjs-react-native project requires Android NDK. It must be installed and included on the path.
+#### 1. tfjs/tfjs-react-native project requires Android NDK. It must be installed and included on the path.
 Link: https://github.com/expo/expo/issues/4483
 
-### 2. WARN     Constants.manifest is null because the embedded app.config could not be read. Ensure that you have installed the expo-constants build scripts if you need to read from Constants.manifest.
+#### 2. WARN     Constants.manifest is null because the embedded app.config could not be read. Ensure that you have installed the expo-constants build scripts if you need to read from Constants.manifest.
 Tried to fix it by installing `expo-constants` package. But it hasn't fixed.
-### 3. TypeError: undefined is not an object (evaluating 'a.substr')
+#### 3. TypeError: undefined is not an object (evaluating 'a.substr')
 Solution: Downgrading @tensorflow/tfjs@3.3.0 to @tensorflow/tfjs@3.0.0
-### 4. [Error: The highest priority backend 'rn-webgl' has not yet been initialized. Make sure to await tf.ready() or await tf.setBackend() before calling other methods]
+#### 4. [Error: The highest priority backend 'rn-webgl' has not yet been initialized. Make sure to await tf.ready() or await tf.setBackend() before calling other methods]
 Solution: Makeing sure to await tf.ready() or await tf.setBackend() before calling other methods]
     
-### 5. App/ Emulator crashes after picking the image.
+#### 5. App/ Emulator crashes after picking the image.
 Reason: Hadn't given the permission to write in external storage. And expo-image-picker requires editing AndroidManifest.xml file.
 Link: https://github.com/expo/expo/tree/master/packages/expo-image-picker
 Solution:
@@ -91,16 +91,17 @@ Add permissions on AndroidManifest.xml file:
      <uses-permission android:name="android.permission.CAMERA" />
      <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
      <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    And add these lines in <application></application> :
+And add these lines in <application></application> :
+
     <activity
       android:name="com.theartofdev.edmodo.cropper.CropImageActivity"
       android:theme="@style/Base.Theme.AppCompat">
     </activity>
 
-### 6. undefined (if ImagePicker.getPendingResultAsync() is used instead of ImagePicker.launchImageLibraryAsync())
+#### 6. undefined (if ImagePicker.getPendingResultAsync() is used instead of ImagePicker.launchImageLibraryAsync())
 Solution: Must be used ImagePicker.launchImageLibraryAsync()
      
-### 7. TypeError: Network request failed when using `const response = await fetch(imageAssetPath.uri, {}, { isBinary: true })`
+#### 7. TypeError: Network request failed when using `const response = await fetch(imageAssetPath.uri, {}, { isBinary: true })`
 Solution: Not using tfjs-react-native/fetch, instead use `expo-file-system`.
 Link: https://github.com/tensorflow/tfjs/issues/3186
 Detailed solution:
@@ -114,4 +115,4 @@ Detailed solution:
         const imgB64 = await FileSystem.readAsStringAsync(fileUri, {
         encoding: FileSystem.EncodingType.Base64,
         });
-        const imgBuffer = tf.util.encodeString(imgB64, 'base64').buffer;
+        const imgBuffer = t    f.util.encodeString(imgB64, 'base64').buffer;
