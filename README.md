@@ -30,40 +30,39 @@ On macOS (to develop iOS applications) You will also need to use CocoaPods to in
 ## Step 2: Install dependencies
 Note that if you are using in a managed expo app the install instructions may be different.
 
-### Install and configure react-native-unimodules (can be skipped if in an expo app)
-    It requires installing `react-native-unimodules` and modifying four files:
+#### Install and configure react-native-unimodules (can be skipped if in an expo app)
+It requires installing `react-native-unimodules` and modifying four files:
     1. android/app/build.gradle
     2. android/app/src/main/java/com/myapp/MainApplication.java
     3. android/build.gradle
     4. android/settings.gradle
-I### nstall and configure expo-gl-cpp and expo-gl
-### Install and configure expo-camera
-### Install and configure async-storage
-    It creates an issue: Doc says to install `@react-native-async-storage/async-storage`, but the project requires `@react-native-                     community/async-storage`. May be caused by expo libraries.
-### Install and configure react-native-fs
-    It requires modifying three files:
+### Install and configure expo-gl-cpp and expo-gl
+#### Install and configure expo-camera
+#### Install and configure async-storage
+It creates an issue: Doc says to install `@react-native-async-storage/async-storage`, but the project requires `@react-native-community/async-storage`. May be caused by backdated expo libraries.
+#### Install and configure react-native-fs
+It requires modifying three files:
     1. android/settings.gradle
     2. android/app/build.gradle
     3. MainApplication.java          
-### Install @tensorflow/tfjs - npm install @tensorflow/tfjs
-### Install @tensorflow/tfjs-react-native - npm install @tensorflow/tfjs-react-native
+#### Install @tensorflow/tfjs - npm install @tensorflow/tfjs
+#### Install @tensorflow/tfjs-react-native - npm install @tensorflow/tfjs-react-native
 
 ## Step 3: Configure Metro
 This step is only needed if you want to use the bundleResourceIO loader.
-
 Edit your metro.config.js to look like the following. Changes are noted in the comments below.
 
-const { getDefaultConfig } = require('metro-config');
-module.exports = (async () => {
-  const defaultConfig = await getDefaultConfig();
-  const { assetExts } = defaultConfig.resolver;
-  return {
-    resolver: {
-      // Add bin to assetExts
-      assetExts: [...assetExts, 'bin'],
-    }
-  };
-})();
+    const { getDefaultConfig } = require('metro-config');
+    module.exports = (async () => {
+      const defaultConfig = await getDefaultConfig();
+      const { assetExts } = defaultConfig.resolver;
+      return {
+        resolver: {
+          // Add bin to assetExts
+          assetExts: [...assetExts, 'bin'],
+        }
+      };
+    })();
 ## Step 4: Test that it is working
 Before using tfjs in a react native app, you need to call tf.ready() and wait for it to complete. This is an async function so you might want to do this in a componentDidMount or before the app is rendered.
 
