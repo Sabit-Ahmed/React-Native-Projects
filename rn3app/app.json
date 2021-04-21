@@ -1,0 +1,12 @@
+{
+  "name": "rn3app",
+  "displayName": "rn3app",
+  "expo": {
+    "name": "rn3app",
+    "slug": "rn3app",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  }
+}
