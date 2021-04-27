@@ -16,6 +16,7 @@ On macOS (to develop iOS applications) You will also need to use CocoaPods to in
 
 #### Install and configure `react-native-unimodules` (can be skipped if in an expo app)
 No need to configure manually this time. Just install unimodules with: `yarn add react-native-unimodules`
+#### Install jpeg-js
 #### Install and configure expo-gl-cpp and expo-gl
 #### Install and configure expo-camera
 Requires configuring android/build.gradle file like previous. The lines to add:
