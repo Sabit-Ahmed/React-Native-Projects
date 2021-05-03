@@ -1,0 +1,12 @@
+{
+  "name": "rn5app",
+  "displayName": "rn5app",
+  "expo": {
+    "name": "rn5app",
+    "slug": "rn5app",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  }
+}
