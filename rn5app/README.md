@@ -27,6 +27,7 @@
 * If you want to use TypeScript in your project:
 i.  Add TypeScript and the types for React Native and Jest to your project.
     `yarn add -D typescript @types/jest @types/react @types/react-native @types/react-test-renderer`
+    
 ii.  Add a TypeScript config file. Create a tsconfig.json in the root of your project:
     {
         "compilerOptions": {
@@ -48,13 +49,17 @@ ii.  Add a TypeScript config file. Create a tsconfig.json in the root of your pr
             "jest.config.js"
         ]
     }
+    
 iii. Create a jest.config.js file to configure Jest to use TypeScript:
     module.exports = {
         preset: 'react-native',
         moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'json', 'node']
     };
+    
 iv. Rename a JavaScript file to be *.tsx
+
 v.  Run `yarn tsc` to type-check your new TypeScript files.
+
 
 7.  Add ".png" in metro.config.js in the resolver:
     assetExts: ['bin', 'txt', 'jpg', 'png']
