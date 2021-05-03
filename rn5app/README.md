@@ -91,4 +91,4 @@ v.  Run `yarn tsc` to type-check your new TypeScript files.
 
 
 #### Important Notes
-Expo-camera does not have support for emulator, so test this project with real devices.
+Expo-camera does not have support for emulator, so test this project with real devices with released apk by `cd android && ./gradlew clean && ./gradlew assembleRelease && cd ..`
