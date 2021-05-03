@@ -24,7 +24,8 @@
 
 
 #### For this project
-* If you want to use TypeScript in your project:
+If you want to use TypeScript in your project:
+
 i.  Add TypeScript and the types for React Native and Jest to your project.
     `yarn add -D typescript @types/jest @types/react @types/react-native @types/react-test-renderer`
     
