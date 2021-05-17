@@ -23,11 +23,15 @@
     </activity>
 
 
+
 #### For this project
-* If you want to use TypeScript in your project:
+If you want to use TypeScript in your project:
+
 i.  Add TypeScript and the types for React Native and Jest to your project.
     `yarn add -D typescript @types/jest @types/react @types/react-native @types/react-test-renderer`
+    
 ii.  Add a TypeScript config file. Create a tsconfig.json in the root of your project:
+    
     {
         "compilerOptions": {
             "allowJs": true,
@@ -48,17 +52,24 @@ ii.  Add a TypeScript config file. Create a tsconfig.json in the root of your pr
             "jest.config.js"
         ]
     }
+    
 iii. Create a jest.config.js file to configure Jest to use TypeScript:
+    
     module.exports = {
         preset: 'react-native',
         moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'json', 'node']
     };
+    
 iv. Rename a JavaScript file to be *.tsx
+
 v.  Run `yarn tsc` to type-check your new TypeScript files.
+
 
 7.  Add ".png" in metro.config.js in the resolver:
     assetExts: ['bin', 'txt', 'jpg', 'png']
+
 (Replace the metro.config.js with the following codes):
+    
     const blacklist = require('metro-config/src/defaults/blacklist');
     module.exports = {
         transformer: {
@@ -80,4 +91,4 @@ v.  Run `yarn tsc` to type-check your new TypeScript files.
 
 
 #### Important Notes
-Expo-camera does not have support for emulator, so test this project with real devices.
+Expo-camera does not have support for emulator, so test this project with real devices with released apk by `cd android && ./gradlew clean && ./gradlew assembleRelease && cd ..`
