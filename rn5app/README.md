@@ -92,3 +92,6 @@ v.  Run `yarn tsc` to type-check your new TypeScript files.
 
 #### Important Notes
 Expo-camera does not have support for emulator, so test this project with real devices with released apk by `cd android && ./gradlew clean && ./gradlew assembleRelease && cd ..`
+* Command for release build apk: `cd android && ./gradlew clean && ./gradlew assembleRelease && cd ..`
+* After release build, next time use `cd android && ./gradlew clean` to clean the files created when bundling. 
+* And run `npx react-native run-android` for debug or `cd android && ./gradlew clean && ./gradlew assembleRelease && cd ..` for release.
