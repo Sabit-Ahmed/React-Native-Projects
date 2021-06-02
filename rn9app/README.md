@@ -45,7 +45,6 @@ Expo-camera does not have support for emulator, so test this project with real d
 
 
 ### Demo App (Android)
-![Output sample](https://github.com/Sabit-Ahmed/React-Native-Projects/blob/main/rn9app/Demo.gif)
-<img src="https://github.com/Sabit-Ahmed/React-Native-Projects/blob/main/rn9app/Demo.gif" width="250" height="250"/>
+<img src="https://github.com/Sabit-Ahmed/React-Native-Projects/blob/main/rn9app/Demo.gif" width="250" height="500"/>
 
 
