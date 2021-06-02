@@ -45,6 +45,6 @@ Expo-camera does not have support for emulator, so test this project with real d
 
 
 ### Demo App (Android)
-![Output sample](https://github.com/ajasmin/camstudio-mousedown-highlight/raw/master/android_vid_test.gif)
+![Output sample](https://github.com/Sabit-Ahmed/React-Native-Projects/blob/main/rn9app/Demo.gif)
 
 
